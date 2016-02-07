@@ -25,64 +25,28 @@ void setup()
 void draw()
 {
   switch (d1) {
-  case 0: 
-    y1 = (y1 - 1 + maxy) % maxy; 
-    break; 
-  case 1: 
-    x1 = (x1 + 1 + maxx) % maxx; 
-    break; 
-  case 2: 
-    y1 = (y1 + 1 + maxy) % maxy; 
-    break; 
-  case 3: 
-    x1 = (x1 - 1 + maxx) % maxx; 
-    break;
+    case 0: y1 = (y1 - 1 + maxy) % maxy; break; 
+    case 1: x1 = (x1 + 1 + maxx) % maxx; break; 
+    case 2: y1 = (y1 + 1 + maxy) % maxy; break; 
+    case 3: x1 = (x1 - 1 + maxx) % maxx; break;
   }
   switch (d2) {
-  case 0: 
-    y2 = (y2 - 1 + maxy) % maxy; 
-    break; 
-  case 1: 
-    x2 = (x2 + 1 + maxx) % maxx; 
-    break; 
-  case 2: 
-    y2 = (y2 + 1 + maxy) % maxy; 
-    break; 
-  case 3: 
-    x2 = (x2 - 1 + maxx) % maxx; 
-    break;
+    case 0: y2 = (y2 - 1 + maxy) % maxy; break; 
+    case 1: x2 = (x2 + 1 + maxx) % maxx; break; 
+    case 2: y2 = (y2 + 1 + maxy) % maxy; break; 
+    case 3: x2 = (x2 - 1 + maxx) % maxx; break;
   }
 
-  //Check for collissions
+  //Check for collisions
   if (get(s * x1, s * y1) != color(0)) 
   { 
-    color cr = get(s * x1, s * y1); //cr: color to remove
+    remove_color(get(s * x1, s * y1));
     ++score2;
-    fill(0); stroke(0);
-    for (int y=0; y!=screen_height; ++y)
-    {
-      for (int x=0; x!=screen_width; ++x)
-      {
-        if (get(x, y) == cr) { 
-          rect(x, y,1,1);
-        }
-      }
-    }
   }   
   if (get(s * x2, s * y2) != color(0)) 
   { 
-    color cr = get(s * x2, s * y2); //cr: color to remove
+    remove_color(get(s * x2, s * y2)); 
     ++score1;
-    fill(0); stroke(0);
-    for (int y=0; y!=screen_height; ++y)
-    {
-      for (int x=0; x!=screen_width; ++x)
-      {
-        if (get(x, y) == cr) { 
-          rect(x, y,1,1);
-        }
-      }
-    }
   }
 
   //Draw players and scores on new spot
@@ -98,6 +62,20 @@ void draw()
   fill(c2);
   text(score2, 3 * screen_width / 4, 32);
   rect(s * x2, s * y2, s-1, s-1);
+}
+
+void remove_color(color cr)
+{
+  fill(0); stroke(0);
+  for (int y=0; y!=screen_height; ++y)
+  {
+    for (int x=0; x!=screen_width; ++x)
+    {
+      if (get(x, y) == cr) { 
+        rect(x, y,1,1);
+      }
+    }
+  }
 }
 
 void keyPressed() {
