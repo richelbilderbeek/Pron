@@ -67,12 +67,12 @@ void draw()
 void remove_color(color cr)
 {
   fill(0); stroke(0);
-  for (int y=0; y!=screen_height; ++y)
+  for (int y=0; y!=maxy; ++y)
   {
-    for (int x=0; x!=screen_width; ++x)
+    for (int x=0; x!=maxx; ++x)
     {
-      if (get(x, y) == cr) { 
-        rect(x, y,1,1);
+      if (get(s * x, s * y) == cr) { 
+        rect(s * x, s * y, s-1, s-1);
       }
     }
   }
