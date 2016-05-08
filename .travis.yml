@@ -3,7 +3,7 @@ language: java
 script: 
   - jdk_switcher use oraclejdk8
   - ./download_processing.sh
-  - ./build_pron.sh
+  - ./build.sh
 
 after_failure:
   - find . | egrep "processing-java"

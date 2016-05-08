@@ -1,6 +1,6 @@
 #!/bin/bash
 myexe="./processing-3.0.2/processing-java"
-sketch_name="Pron"
+sketch_name=`ls *.pde | cut -d '.' -f 1`
 input_folder="../"$sketch_name
 output_folder=$input_folder"_output"
 
