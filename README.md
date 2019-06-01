@@ -7,7 +7,7 @@ Branch|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![Codecov 
 
 Tron, written in Processing.
 
-![Pron v1.0](Pron_1_0.png)
+![Pron v1.0](pics/Pron_1_0.png)
 
 You can play the game at 
 [the Pron page of richelbilderbeek his GitHub pages](http://richelbilderbeek.github.io/Pron/Pron.html).
