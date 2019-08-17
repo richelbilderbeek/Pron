@@ -1,5 +1,5 @@
 #!/bin/bash
-myexe="./processing-3.4/processing-java"
+myexe="./processing-3.5.3/processing-java"
 sketch_name=`ls *.pde | cut -d '.' -f 1`
 input_folder="../"$sketch_name
 output_folder=$input_folder"_output"
