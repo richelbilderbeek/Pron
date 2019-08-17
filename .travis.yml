@@ -1,9 +1,16 @@
 language: java
+dist: bionic
+
+install: 
+  - sudo apt update -qq
+
+jdk: openjdk11
 
 script: 
-  - jdk_switcher use oraclejdk8
+  # - jdk_switcher use openjdk11
   - ./download_processing.sh
   - ./build.sh
+
 
 after_failure:
   - find . | egrep "processing-java"
